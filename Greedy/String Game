@@ -1,0 +1,39 @@
+<Copyright Popescu Adrian, adrianpopescupx@gmail.com>
+
+Problem Link: https://codeforces.com/problemset/problem/1373/B
+
+
+int main() {
+    
+    int t;
+    cin >> t;
+    while (t--) {
+        string s;
+        cin >> s;
+        bool ok = true;
+        int cnt = 0;
+        if (s.size() == 2) {
+            if (s[0] != s[1]) {
+                    cnt++;
+                    ok = false;
+                }
+        }
+        while (ok && s.size() >= 2) {
+            ok = false;
+            string cr = "";
+            for (int i = 0; i < s.size() - 1 && s.size() > 1; ++i) {
+                if (s[i] != s[i+1] && s.size() > 1) {
+                    cnt++;
+                    cr = s.substr(i + 2);
+                    s = s.substr(0, i);
+                    s += cr;
+                    ok = true;
+                }
+            }
+        }
+        if (cnt % 2 == 1) {
+            cout << "DA" << '\n';
+        }   else cout << "NET" << '\n';
+    }
+    return 0;
+}
