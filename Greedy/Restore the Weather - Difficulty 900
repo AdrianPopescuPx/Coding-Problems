@@ -1,0 +1,37 @@
+// <Copyright Popescu Adrian, adrianpopescupx@gmail.com>
+
+#include <bits/stdc++.h>
+using namespace std;
+
+Problem Source: https://codeforces.com/contest/1833/problem/B
+
+int main () {
+
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, k;
+        cin >> n >> k;
+        vector<int> a(n), ans(n);
+        vector<pair<int, int>> tt(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> tt[i].first;
+            tt[i].second = i;
+        }
+        for (int i = 0; i < n; ++i) {
+            cin >> a[i];
+        }
+
+        sort(a.begin(), a.end());
+        sort(tt.begin(), tt.end());
+        for (int i = 0; i < n; ++i) {
+            ans[tt[i].second] = a[i];
+        }
+        for (auto x: ans) {
+            cout << x << ' ';
+        }
+        cout << '\n';
+    }
+
+    return 0;
+}
