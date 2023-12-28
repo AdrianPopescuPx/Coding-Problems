@@ -1,0 +1,51 @@
+<Copyright Popescu Adrian, adrianghpopescup@gmail.com>
+
+Problem Link https://codeforces.com/contest/1915/problem/D
+
+#include <cmath>
+#include <iomanip>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool cons(char s) {
+    if (s == 'b' || s == 'c' || s == 'd') {
+        return true;
+    }
+    return false;
+}
+bool voc(char s) {
+    if (s == 'a' || s == 'e')
+        return true;
+    return false;
+}
+
+int main() {
+    long long t, n, sum, x;
+    cin >> t;
+    string s;
+
+    while (t--) {
+        cin >> n >> s;
+        int size = 0;
+        for (int i = 0; i < n; i++) {
+            cout << s[i];
+            if (voc(s[i])) {
+                if (cons(s[i + 1])) {
+                    if (i + 2 < n && cons(s[i + 2])) {
+                        cout << s[i + 1] << '.';
+                        i++;
+                    } else if (i + 2 == n) {
+                        continue;
+                    } else {
+                        cout << '.';
+                    }
+                }
+            }
+        }
+
+        cout << '\n';
+    }
+
+    return 0;
+}
