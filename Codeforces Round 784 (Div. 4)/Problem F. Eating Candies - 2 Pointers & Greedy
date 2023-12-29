@@ -1,0 +1,35 @@
+copywrite <adrianghpopescu@gmail.com>
+Problem Link: https://codeforces.com/contest/1669/problem/F
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long t, n, alice, bob, ans;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        int vec[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            cin >> vec[i];
+        }
+        int left = 1, right = n;
+        alice = 0, bob = 0;
+        ans = 0;
+        int eaten = 0;
+        while (left <= right) {
+            if (alice < bob) {
+                alice += vec[left++];
+                eaten++;
+            } else {
+                bob += vec[right--];
+                eaten++;
+            }
+            if (alice == bob) {
+                ans = eaten;
+            }
+        }
+        cout << ans << '\n';
+    }
+}
