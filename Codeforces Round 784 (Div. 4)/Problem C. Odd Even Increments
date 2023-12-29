@@ -1,0 +1,62 @@
+copywrite <adrianghpopescu@gmail.com>
+Problem Link: https://codeforces.com/contest/1669/problem/C
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define FastEverything  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define HighPrecision cout<<fixed<<setprecision(17);
+
+
+int main () {   
+    
+    FastEverything
+    HighPrecision
+    
+    int t;
+    cin >> t;
+    
+
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a1, a2;
+        for (int i = 1; i <= n; ++i) {
+            int x;
+            cin >> x;
+            if (i % 2 == 0) {
+                a1.push_back(x);
+            }   else {
+                a2.push_back(x);
+            }
+        }
+        string ans = "YES";
+        if (a1.size() > 1) {
+            for (int i = 0; i < a1.size() - 1; ++i) {
+            if (a1[i] % 2 != a1[i+1] % 2) {
+                ans = "NO";
+            }
+        }
+        }
+        if (ans != "YES") {
+            cout << "NO" << '\n';
+        }   else {
+            if (a2.size() > 1) {
+                for (int i = 0; i < a2.size() - 1; ++i) {
+                if (a2[i] % 2 != a2[i+1] % 2) {
+                    ans = "NO";
+                }
+            }
+            }
+            cout << ans << '\n';
+        }
+        
+    }
+
+
+
+
+
+    return 0; 
+
+}
