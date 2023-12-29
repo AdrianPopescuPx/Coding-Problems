@@ -1,0 +1,51 @@
+copywrite <adrianghpopescu@gmail.com>
+Problem Link: https://codeforces.com/contest/1669/problem/D
+
+The idea here was as follows:
+The parts of the picture separated by W are independent, so I had to check if R and B were used before any W
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+
+int main() {
+    int t, n;
+    cin >> t;
+
+    while (t--) {
+        cin >> n;
+        string s;
+        cin >> s;
+        bool w = false, ans = true;
+        bool r = false, b = false;
+        int countr = 0, countb = 0;
+        for (int i = 0; i < n; i++) {
+            if (s[i] == 'W') {
+                if (countb > 0 && countr > 0 || countr == 0 && countb == 0) {
+                    countb = 0, countr = 0;
+                } else {
+                    ans = false;
+                    break;
+                }
+            } else if (s[i] == 'R')
+                countr++;
+            else
+                countb++;
+        }
+
+        if (countb > 0 && countr > 0 || countr == 0 && countb == 0) {
+            countb = 0, countr = 0;
+        } else {
+            ans = false;
+        }
+        if (ans == false && countb == 0 && countr == 0)
+            ans = true;
+        if (ans)
+            cout << "YES\n";
+        else
+            cout << "NO\n";
+    }
+    return 0;
+}
