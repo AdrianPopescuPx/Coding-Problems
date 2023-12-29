@@ -1,0 +1,42 @@
+copywrite <adrianghpopescu@gmail.com>
+Problem Link: https://codeforces.com/contest/1669/problem/B
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define FastEverything  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define HighPrecision cout<<fixed<<setprecision(17);
+ 
+
+int main () {   
+    
+    FastEverything
+    HighPrecision
+    
+    int t;
+    cin >> t;
+    
+
+    while (t--) {
+        int n, ans = -1;
+        cin >> n;
+        int f[200005] = {0};
+        for (int i = 1; i <= n; ++i) {
+            int x;
+            cin >> x;
+            f[x]++;
+            if (f[x] == 3) {
+                ans = x;
+            }
+        }
+        cout << ans << '\n';
+    }
+
+
+
+
+
+    return 0; 
+
+}
