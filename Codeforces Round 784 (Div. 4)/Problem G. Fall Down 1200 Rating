@@ -1,0 +1,60 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define FastEverything  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define HighPrecision cout<<fixed<<setprecision(17);
+ 
+
+int main () {   
+    
+    FastEverything
+    HighPrecision
+    
+    int t;
+    cin >> t;
+    
+    bool changed;
+    while (t--) {
+        int n, m;
+        cin >> n >> m;
+        char mat[n][m];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; j++) {
+                cin >> mat[i][j];
+            }
+        }
+        for (int j = 0; j < m; ++j) {
+            for (int i = 0; i < n; i++) {
+                if (mat[i][j] == '*') {
+                    changed = false;
+                    int pos = i;
+                    for (int l = i + 1; l < n; ++l) {
+                        if (mat[l][j] == 'o')
+                            break;
+                        if (mat[l][j] == '.') {
+                            changed = true;
+                            pos = l;
+                        }
+                    }
+                    if (changed) {
+                        mat[pos][j] = '*';
+                        mat[i][j] = '.';
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; j++) {
+                cout << mat[i][j];
+            }
+            cout << '\n';
+        }
+        cout << '\n';
+    }
+
+
+
+
+
+    return 0; 
+
+}
