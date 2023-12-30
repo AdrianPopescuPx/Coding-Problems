@@ -1,0 +1,34 @@
+copywrite <adrianghpopescu@gmail.com>
+Problem Link: https://codeforces.com/contest/1676/problem/B
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define FastEverything  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define HighPrecision cout<<fixed<<setprecision(17);
+
+
+int main () {   
+    
+    FastEverything
+    HighPrecision
+    
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> vc(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            cin >> vc[i];
+        }
+        sort(vc.begin() + 1, vc.end());
+        int ans = 0;
+        for (int i = 2; i <= n; ++i) {
+            ans += (vc[i] - vc[1]);
+        }
+        cout << ans << '\n';
+    }
+    return 0;
+
+}
