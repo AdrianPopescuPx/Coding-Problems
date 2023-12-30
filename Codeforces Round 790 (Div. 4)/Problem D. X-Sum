@@ -1,0 +1,52 @@
+copywrite <adrianghpopescu@gmail.com>
+Problem Link: https://codeforces.com/contest/1676/problem/D
+
+#include <bits/stdc++.h>
+using namespace std;
+#define FastEverything  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define HighPrecision cout<<fixed<<setprecision(17);
+
+
+int main () {   
+    
+    FastEverything
+    HighPrecision
+    
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, m;
+        cin >> n >> m;
+        int cs[n + 1][m + 1];
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= m; ++j) {
+                cin >> cs[i][j];
+            }
+        } 
+
+        int mx = -1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= m; ++j) {
+                int crn = 0;
+                crn += cs[i][j];
+                for (int q = i - 1, st = j - 1; q >= 1 && st >= 1; --q,st--) {
+                    crn += cs[q][st];
+                }
+                for (int q = i - 1, dr = j + 1; q >= 1 && dr <= m; --q, dr++) {
+                    crn += cs[q][dr];
+                }
+                for (int q = i + 1, dr = j + 1; q <= n && dr <= m; ++q, dr++) {
+                    crn += cs[q][dr];
+                }
+                for (int q = i + 1, st = j - 1; q <= n && st >= 1; ++q, st--) {
+                    crn += cs[q][st];
+                }
+                mx = max(mx, crn);
+            }
+        } 
+        cout << mx << '\n';
+    }
+    
+    return 0;
+
+}
