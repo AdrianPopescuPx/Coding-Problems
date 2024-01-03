@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 using namespace std;
-
+// problem link: https://codeforces.com/problemset/problem/501/A
 int main() {
     int vas, mis, a, b;
     cin >> mis >> vas >> a >> b;
