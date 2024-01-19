@@ -5,7 +5,6 @@
 // actually the best approach is to count the number of good pairs from right to left, and from the full number of letters to decrese the good pairs
 
 using namespace std;
-
 int main() {
     int t, n;
     string s1, s2;
